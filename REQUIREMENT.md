@@ -6,22 +6,22 @@
 
 ### Home - General Map
 
-- navigation (logo on left, BERANDA and TENTANG KAMI at center)
+- navigation (logo on left, BERANDA and TENTANG KAMI at center), yellow, inter, bold, 20
 - banner
 - general map shows all coordinates with clickable shows LIHAT DETAIL
 
 ### Detail Coordinate
 
 - navigation
-- banner with Text (DETAIL COORDINATE)
+- banner with Text (DETAIL COORDINATE), white, inter, bold, 32
 - general map shows only 1 selected coordinate
-- show coordinate as a text at bottom (Coordinate Details: 113.87535787965106, -1.1057614895977395)
+- show coordinate as a text at bottom (Coordinate Details: 113.87535787965106, -1.1057614895977395), black, inter, bold, 20
 
 ### About Us
 
 - navigation
 - banner with Text (TENTANG KAMI)
-- texts 
+- texts, black, inter, regular, 18
 
 ```
 Kaleka (formerly Yayasan Inobu) is an Indonesian, non-profit organization that strives forward the sustainable management of Indonesian's landscapes and seascapes for the benefit of local and indigenous communties. Founded in 2014, Kaleka is a woman-led organization, where the Executive Director and majority of managers and staff are women. With over 60 staff now, our staff represent the diversity of peoples in the Indonesian archipelago, all committed to upholding human rights and protecting the environment. Kaleka's thematic strengths are in the areas of sustainable sourcing, conservation and restoration, agri-food systems, community development and environmental and social governance.
@@ -70,6 +70,14 @@ Example response:
             ]
         }
     ],
-    "count": 3
+    "count": 2
 }
 ```
+
+## Colors
+
+### Text
+
+- yellow, #F8BE1A
+- black, #000000
+- white, #FFFFFF
