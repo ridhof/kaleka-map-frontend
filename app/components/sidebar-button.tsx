@@ -1,10 +1,9 @@
 import Image from 'next/image';
-import { SVGProps } from 'react';
 
 interface SidebarButtonProps {
-	imageSrc: SVGProps<SVGSVGElement>,
+	imageSrc: any,
 	alt: string,
-	height: int,
+	height: number,
 	className: string,
 	onClick: () => void,
 }

@@ -53,3 +53,4 @@ function Navigation() {
 }
 
 export { Navigation };
+export type { NavigationItemProps };

@@ -1,12 +1,12 @@
 import Link from 'next/link';
 
-import { NavigationItemProps } from '@/components/navigation'
+import type { NavigationItemProps } from '@/components/navigation';
 
 interface NavigationBarDesktopProps {
 	items: NavigationItemProps[],
 }
 
-function NavigationBarDesktop({ items }: NavigationbarDesktopProps) {
+function NavigationBarDesktop({ items }: NavigationBarDesktopProps) {
 	const navs = items.map(({ url, title }: NavigationItemProps) => {
 		return (
 			<Link
