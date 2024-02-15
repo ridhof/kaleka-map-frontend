@@ -1,25 +1,54 @@
+"use client"
+
 import Image from 'next/image';
 import Link from 'next/link';
+import { SVGProps, useState } from 'react';
+
+import { SidebarButton } from '@/components/sidebar-button';
+import { NavigationBarDesktop } from '@/components/navigationbar-desktop';
+import { NavigationBarMobile } from '@/components/navigationbar-mobile';
+import bars from '@/images/bars.svg';
+import cross from '@/images/cross.svg';
 import logoTextImage from '@/images/kaleka-logo-with-text.svg';
 
+interface NavigationItemProps {
+	url: string,
+	title: string,
+}
+
 function Navigation() {
+	const [showSidebar, setShowSidebar] = useState<boolean>(false);
+	const items: NavigationItemProps[]  = [
+		{ url: "/", title: "Beranda" },
+		{ url: "about", title: "Tentang Kami" },
+	];
+
+	function handleSidebarClick() {
+		setShowSidebar(!showSidebar);
+	}
+
 	return (
-		<div
-			className="p-3 py-auto relative bg-black min-h-[10vh]"
-		>
-			<Image
-				src={logoTextImage}
-				alt="Kaleka logo with text"
-				height={40}
-				className="absolute py-auto"
-			/>
+		<>
 			<div
-				className="h-[6vh] flex justify-center gap-x-[4vw] text-[#F8BE1A] hover:text-[#F8AA2F] font-bold text-[14px] uppercase"
+				className="p-3 py-auto flex relative bg-black min-w-[250px]"
 			>
-				<Link href="/" className="p-2 my-auto">Beranda</Link>
-				<Link href="/about" className="p-2 my-auto">Tentang Kami</Link>
+				<SidebarButton
+					onClick={handleSidebarClick}
+					imageSrc={showSidebar ? cross : bars}
+					alt="Cross icon to close menu bars"
+					height={40}
+					className="mx-1 p-1"
+				/>
+				<Image
+					src={logoTextImage}
+					alt="Kaleka logo with text"
+					height={40}
+					className="m-auto md:m-0 py-auto absolute inset-3 md:relative md:inset-0"
+				/>
+				<NavigationBarDesktop items={items} />
 			</div>
-		</div>
+			{ showSidebar && <NavigationBarMobile items={items} /> }
+		</>
 	);
 }
 
