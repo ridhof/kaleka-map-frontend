@@ -1,5 +1,5 @@
-import type { MapOptions } from 'leaflet';
-import type { FC, ReactNode } from 'react';
+"use client"
+
 import { useState } from 'react';
 import {
 	Circle,
@@ -13,11 +13,7 @@ import { MapEventHandler } from '@/components/map-event-handler';
 
 import 'leaflet/dist/leaflet.css';
 
-interface MapProps {
-	className: string,
-};
-
-function Map({ className }: MapProps) {
+function Map() {
 	const [zoom, setZoom] = useState<number>(
 		window.innerWidth <= 768 ? 3 : (
 			window.innerWidth <= 1024 ? 4 : 5
@@ -63,4 +59,4 @@ function Map({ className }: MapProps) {
 	);
 };
 
-export { Map };
+export default Map;

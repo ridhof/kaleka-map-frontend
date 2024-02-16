@@ -1,3 +1,5 @@
+import type { MapOptions } from 'leaflet';
+import type { FC, ReactNode } from 'react';
 import { MapContainer, TileLayer } from 'react-leaflet';
 
 const LeafletContainer: FC<
@@ -5,11 +7,11 @@ const LeafletContainer: FC<
 		center: [number, number],
 		children: ReactNode,
 		zoom: number,
+		className: string,
 	} & MapOptions
 > = ({ children, ...options }) => {
 	return (
 		<MapContainer
-			className="h-[200px] w-full relative"
 			minZoom={3}
 			maxZoom={10}
 			{...options}
