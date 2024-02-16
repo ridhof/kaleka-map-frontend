@@ -1,4 +1,7 @@
+"use client"
+
 import { Banner } from '@/components/banner';
+import { Map } from '@/components/map';
 import { Navigation } from '@/components/navigation';
 
 export default function Home() {
@@ -6,6 +9,7 @@ export default function Home() {
 		<>
 			<Navigation />
 			<Banner title="" />
+			<Map />
 		</>
 	);
 }
