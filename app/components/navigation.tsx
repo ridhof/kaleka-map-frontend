@@ -30,7 +30,7 @@ function Navigation() {
 	return (
 		<>
 			<div
-				className="p-3 py-auto flex relative bg-black min-w-[250px]"
+				className="relative p-3 py-auto flex relative bg-black min-w-[250px]"
 			>
 				<SidebarButton
 					onClick={handleSidebarClick}

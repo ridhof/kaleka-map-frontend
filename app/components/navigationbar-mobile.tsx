@@ -19,7 +19,7 @@ function NavigationBarMobile({ items }: NavigationBarMobileProps) {
 		);
 	});
 	return (
-		<div className="md:hidden bg-black h-screen min-w-[250px]">
+		<div className="md:hidden absolute inset-0 top-14 z-10 bg-black h-screen min-w-[250px]">
 			<div className="p-4 text-[#F8BE1A] font-bold text-[14px] uppercase flex flex-col justify-center">
 				{ navs }
 			</div>
