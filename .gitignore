@@ -37,3 +37,6 @@ next-env.d.ts
 
 # vim
 *.swp
+
+# Sentry Config File
+.sentryclirc

@@ -15,6 +15,7 @@ async function getCoordinateData(): Promise<getCoordinateDataResponse> {
 		{ next: { revalidate: 10 } },
 	);
 	if (!res.ok) {
+		throw new Error('Unable to fetch coordinate data');
 		return {
 			data: [],
 			count: 0,
