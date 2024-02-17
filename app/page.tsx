@@ -8,11 +8,15 @@ const Map = dynamic(async () => (await import('./components/map')), {
 });
 
 export default function Home() {
+	const circlesCoordinates = [
+		[-1.1057614895977395, 113.87535787965106],
+		[-1.0207845828238362, 116.9814126725039],
+	] as [number, number][];
 	return (
 		<>
-			<Navigation />
+      			<Navigation />
 			<Banner title="" />
-			<Map />
+			<Map circlesCoordinates={circlesCoordinates} />
 		</>
 	);
 }

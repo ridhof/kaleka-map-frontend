@@ -13,7 +13,7 @@ const LeafletContainer: FC<
 	return (
 		<MapContainer
 			minZoom={3}
-			maxZoom={10}
+			maxZoom={12}
 			{...options}
 		>
 			<TileLayer

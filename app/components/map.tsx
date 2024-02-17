@@ -1,5 +1,6 @@
 "use client"
 
+import Link from 'next/link';
 import { useState } from 'react';
 import {
 	Circle,
@@ -13,7 +14,11 @@ import { MapEventHandler } from '@/components/map-event-handler';
 
 import 'leaflet/dist/leaflet.css';
 
-function Map() {
+interface MapProps {
+	circlesCoordinates: [number, number][],
+};
+
+function Map({ circlesCoordinates }: MapProps) {
 	const [zoom, setZoom] = useState<number>(
 		window.innerWidth <= 768 ? 3 : (
 			window.innerWidth <= 1024 ? 4 : 5
@@ -21,10 +26,6 @@ function Map() {
 	);
 	const [radius, setRadius] = useState<number>(calculateRadius(zoom));
 	const center: [number, number] = [-2.2910, 117.7737];
-	const circlesCoordinates: [number, number][] = [
-		[-1.1057, 113.8753],
-		[-1.0207, 116.9814],
-	];
 
 	function onZoomClick(newZoomValue: number) {
 		setZoom(newZoomValue);
@@ -35,9 +36,27 @@ function Map() {
 		return 800000 / ((zoomValue - 1) ** 1.8);
 	}
 
-	const circles = circlesCoordinates.map((position, index) =>
-		<Circle key={index} center={position} radius={radius} />
-	);
+	let circles = null;
+	if (circlesCoordinates && circlesCoordinates.length > 0) {
+		circles = circlesCoordinates.map((position, index) =>
+			<FeatureGroup
+				key={index}
+			>
+				<Popup>
+					<Link
+						href={`/map/@${position[0]},${position[1]}`}
+					>
+						<span
+							className="text-xs font-bold text-red-400"
+						>
+							LIHAT DETAIL
+						</span>
+					</Link>
+				</Popup>
+				<Circle center={position} radius={radius} />
+			</FeatureGroup>
+		);
+	}
 
 	return (
 		<LeafletContainer
@@ -46,14 +65,7 @@ function Map() {
 			className="my-6 h-[40vh] md:w-[90vw] mx-auto md:my-10 md:h-[80vh]"
 			scrollWheelZoom={false}
 		>
-			<FeatureGroup>
-				<Popup>
-					<button className="font-xs text-red-400 font-bold">
-						LIHAT DETAIL
-					</button>
-				</Popup>
-				{circles}
-			</FeatureGroup>
+			{circles}
 			<MapEventHandler zoomendEvent={onZoomClick} />
 		</LeafletContainer>
 	);

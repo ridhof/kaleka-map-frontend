@@ -20,7 +20,7 @@ function Navigation() {
 	const [showSidebar, setShowSidebar] = useState<boolean>(false);
 	const items: NavigationItemProps[]  = [
 		{ url: "/", title: "Beranda" },
-		{ url: "about", title: "Tentang Kami" },
+		{ url: "/about", title: "Tentang Kami" },
 	];
 
 	function handleSidebarClick() {
