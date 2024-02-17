@@ -2,16 +2,17 @@ import dynamic from 'next/dynamic';
 
 import { Banner } from '@/components/banner';
 import { Navigation } from '@/components/navigation';
+import { getCoordinateData } from '@/data/coordinates';
 
 const Map = dynamic(async () => (await import('./components/map')), {
 	ssr: false,
 });
 
-export default function Home() {
-	const circlesCoordinates = [
-		[-1.1057614895977395, 113.87535787965106],
-		[-1.0207845828238362, 116.9814126725039],
-	] as [number, number][];
+export default async function Home() {
+	const coordinates = await getCoordinateData();
+	const circlesCoordinates = coordinates.data.map(
+		({ coordinates }) => ([coordinates[1], coordinates[0]])
+	) as [number, number][];
 	return (
 		<>
       			<Navigation />
